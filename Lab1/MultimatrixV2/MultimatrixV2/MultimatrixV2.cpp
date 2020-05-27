@@ -2,7 +2,6 @@
 #include <fstream>
 #include <optional>
 #include <string>
-//TODO: псомотреть про передачу параметров по ссылке в функции 
 using namespace std;
 
 const int Size = 3;

@@ -1,6 +1,7 @@
 #include "VectorFunctions.h"
 #include <iostream>
 #include <algorithm>
+#include <functional>
 #include <iomanip>
 
 void ReadElements(istream& input, vector<double>& vect)
@@ -24,9 +25,10 @@ double FindMinElement(vector<double>& vect)
 
 void MultiplyVectorByNumber(vector<double>& vect, double num)
 {
-	for (unsigned int i = 0; i < vect.size(); ++i) {
+	transform(vect.begin(), vect.end(), vect.begin(), [&num](auto& temp) {return temp * num;});
+	/*for (unsigned int i = 0; i < vect.size(); ++i) {
 		vect[i] *= num;
-	}
+	}*/
 }
 
 void PrintSortedVector(vector<double>& vect, ostream& output)
