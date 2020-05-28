@@ -164,7 +164,7 @@
     <ClCompile Include="..\Bodies\CCylinder.cpp" />
     <ClCompile Include="..\Bodies\CParallelepiped.cpp" />
     <ClCompile Include="..\Bodies\CSphere.cpp" />
-    <ClCompile Include="..\Bodies\ExtraFunctions.cpp" />
+    <ClCompile Include="..\Bodies\UserInterface.cpp" />
     <ClCompile Include="Bodies_Tests.cpp" />
   </ItemGroup>
   <ItemGroup>
@@ -173,7 +173,7 @@
     <ClInclude Include="..\Bodies\CCylinder.h" />
     <ClInclude Include="..\Bodies\CParallelepiped.h" />
     <ClInclude Include="..\Bodies\CSphere.h" />
-    <ClInclude Include="..\Bodies\ExtraFunctions.h" />
+    <ClInclude Include="..\Bodies\UserInterface.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

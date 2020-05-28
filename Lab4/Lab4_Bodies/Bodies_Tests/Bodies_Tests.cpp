@@ -11,7 +11,7 @@
 #include "../Bodies/CCylinder.h"
 #include "../Bodies/CParallelepiped.h"
 #include "../Bodies/CSphere.h"
-#include "../Bodies/ExtraFunctions.h"
+#include "../Bodies/UserInterface.h"
 
 using namespace std;
 
@@ -153,10 +153,11 @@ SCENARIO("Parallelepiped Tests") {
 
 SCENARIO("Find max mass body tests") {
 	vector<shared_ptr<CBody>> bodies; // Если вектор пустой то он ничего не будет искать 
+	UserInterface UI = UserInterface();
 	WHEN("One body in vector") {
 		bodies.push_back(make_shared<CSphere>(0.1, 1200));
 		THEN("This body have max mass") {
-			shared_ptr<CBody> maxMassBody = FindMaxMass(bodies);
+			shared_ptr<CBody> maxMassBody = UI.FindMaxMass(bodies);
 			CBody* temp = maxMassBody.get();
 			CHECK(3.6 == temp->GetMass());
 		}
@@ -166,7 +167,7 @@ SCENARIO("Find max mass body tests") {
 		bodies.push_back(make_shared<CSphere>(0.1, 1200));
 		bodies.push_back(make_shared<CParallelepiped>(1, 1, 1, 1200));
 		THEN("Find body with max mass") {
-			shared_ptr<CBody> maxMassBody = FindMaxMass(bodies);
+			shared_ptr<CBody> maxMassBody = UI.FindMaxMass(bodies);
 			CBody* temp = maxMassBody.get();
 			CHECK(1200 == temp->GetMass());
 		}
@@ -177,7 +178,7 @@ SCENARIO("Find max mass body tests") {
 		bodies.push_back(make_shared<CCylinder>(0.1, 1, 1200));
 		bodies.push_back(make_shared<CParallelepiped>(1, 1, 1, 1200));
 		THEN("Find body with max mass") {
-			shared_ptr<CBody> maxMassBody = FindMaxMass(bodies);
+			shared_ptr<CBody> maxMassBody = UI.FindMaxMass(bodies);
 			CBody* temp = maxMassBody.get();
 			CHECK(1200 == temp->GetMass());
 		}
@@ -187,7 +188,7 @@ SCENARIO("Find max mass body tests") {
 		bodies.push_back(make_shared<CParallelepiped>(1, 1, 1, 1200));
 		bodies.push_back(make_shared<CParallelepiped>(1, 1, 1, 1200));
 		THEN("Find body with max mass") {
-			shared_ptr<CBody> maxMassBody = FindMaxMass(bodies);
+			shared_ptr<CBody> maxMassBody = UI.FindMaxMass(bodies);
 			CBody* temp = maxMassBody.get();
 			CHECK(1200 == temp->GetMass());
 		}
@@ -196,11 +197,11 @@ SCENARIO("Find max mass body tests") {
 
 SCENARIO("Find min mass body in water") {
 	vector<shared_ptr<CBody>> bodies; // Если вектор пустой то он ничего не будет искать 
-	
+	UserInterface UI = UserInterface();
 	WHEN("One body in vector") {
 		bodies.push_back(make_shared<CSphere>(0.1, 1200));
 		THEN("This body have min mass") {
-			shared_ptr<CBody> minMassBody = FindMinMassInWater(bodies);
+			shared_ptr<CBody> minMassBody = UI.FindMinMassInWater(bodies);
 			CBody* temp = minMassBody.get();
 			CHECK(3.6 == temp->GetMass());
 		}
@@ -210,7 +211,7 @@ SCENARIO("Find min mass body in water") {
 		bodies.push_back(make_shared<CSphere>(0.1, 1200));
 		bodies.push_back(make_shared<CParallelepiped>(1, 1, 1, 1200));
 		THEN("Find body with min mass in water") {
-			shared_ptr<CBody> minMassBody = FindMinMassInWater(bodies);
+			shared_ptr<CBody> minMassBody = UI.FindMinMassInWater(bodies);
 			CBody* temp = minMassBody.get();
 			CHECK(3.6 == temp->GetMass());
 		}
@@ -221,7 +222,7 @@ SCENARIO("Find min mass body in water") {
 		bodies.push_back(make_shared<CCylinder>(0.1, 1, 1200));
 		bodies.push_back(make_shared<CParallelepiped>(1, 1, 1, 1200));
 		THEN("Find body with min mass in water") {
-			shared_ptr<CBody> minMassBody = FindMinMassInWater(bodies);
+			shared_ptr<CBody> minMassBody = UI.FindMinMassInWater(bodies);
 			CBody* temp = minMassBody.get();
 			CHECK(3.6 == temp->GetMass());
 		}
@@ -231,7 +232,7 @@ SCENARIO("Find min mass body in water") {
 		bodies.push_back(make_shared<CParallelepiped>(1, 1, 1, 1200));
 		bodies.push_back(make_shared<CParallelepiped>(1, 1, 1, 1200));
 		THEN("Find body with min mass in water") {
-			shared_ptr<CBody> minMassBody = FindMinMassInWater(bodies);
+			shared_ptr<CBody> minMassBody = UI.FindMinMassInWater(bodies);
 			CBody* temp = minMassBody.get();
 			CHECK(1200 == temp->GetMass());
 		}

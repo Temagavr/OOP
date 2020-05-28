@@ -157,7 +157,7 @@
     <ClCompile Include="CParallelepiped.cpp" />
     <ClCompile Include="CSphere.cpp" />
     <ClCompile Include="CBody.cpp" />
-    <ClCompile Include="ExtraFunctions.cpp" />
+    <ClCompile Include="UserInterface.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="CCone.h" />
@@ -165,7 +165,7 @@
     <ClInclude Include="CParallelepiped.h" />
     <ClInclude Include="CSphere.h" />
     <ClInclude Include="CBody.h" />
-    <ClInclude Include="ExtraFunctions.h" />
+    <ClInclude Include="UserInterface.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
